@@ -1,0 +1,130 @@
+.landing-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 50%, #95d5b2 100%);
+}
+
+.landing-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.landing-text {
+  flex: 1;
+  text-align: left;
+}
+
+.landing-text h1 {
+  font-size: 3rem;
+  color: #1b4332;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  color: #2d6a4f;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature-icon {
+  font-size: 2rem;
+}
+
+.feature span:last-child {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 106, 79, 0.4);
+}
+
+.landing-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plant-showcase {
+  width: 300px;
+  height: 300px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.big-plant-icon {
+  font-size: 8rem;
+}
+
+@media (max-width: 768px) {
+  .landing-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .landing-text {
+    text-align: center;
+  }
+
+  .features {
+    justify-content: center;
+  }
+
+  .plant-showcase {
+    width: 200px;
+    height: 200px;
+  }
+
+  .big-plant-icon {
+    font-size: 5rem;
+  }
+}
