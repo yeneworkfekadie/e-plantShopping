@@ -1,43 +1,33 @@
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { addItem, removeItem, updateQuantity, clearCart } from './store/CartSlice';
 import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
 import ProductListing from './pages/ProductListing';
 import ShoppingCart from './pages/ShoppingCart';
+import AboutUs from './pages/AboutUs';
 import './App.css';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
-
-  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartCount = useSelector((state) => state.cart.totalQuantity);
 
   const handleAddToCart = (plant) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.id === plant.id);
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.id === plant.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...prevItems, { ...plant, quantity: 1 }];
-    });
+    dispatch(addItem(plant));
   };
 
   const handleUpdateQuantity = (id, newQuantity) => {
     if (newQuantity < 1) return;
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
+    dispatch(updateQuantity({ id, quantity: newQuantity }));
   };
 
   const handleRemoveItem = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    dispatch(removeItem(id));
   };
 
   const handleClearCart = () => {
-    setCartItems([]);
+    dispatch(clearCart());
   };
 
   return (
@@ -47,6 +37,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route
               path="/products"
               element={<ProductListing onAddToCart={handleAddToCart} />}
