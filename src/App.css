@@ -21,3 +21,28 @@
   padding: 0;
   text-align: left;
 }
+
+/* Background image for Paradise Nursery landing page */
+.landing-page {
+  background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1920&h=1080&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.landing-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(216, 243, 220, 0.9) 0%, rgba(183, 228, 199, 0.85) 50%, rgba(149, 213, 178, 0.9) 100%);
+  z-index: 0;
+}
+
+.landing-content {
+  position: relative;
+  z-index: 1;
+}
