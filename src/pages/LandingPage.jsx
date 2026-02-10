@@ -1,7 +1,13 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
 
 function LandingPage() {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/products');
+  };
+
   return (
     <div className="landing-page">
       <div className="landing-content">
@@ -28,9 +34,9 @@ function LandingPage() {
               <span>Expert Care Tips</span>
             </div>
           </div>
-          <Link to="/products" className="cta-button">
+          <button className="cta-button" onClick={handleGetStarted}>
             Get Started
-          </Link>
+          </button>
         </div>
         <div className="landing-image">
           <div className="plant-showcase">

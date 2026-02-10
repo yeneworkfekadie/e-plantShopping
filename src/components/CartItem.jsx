@@ -1,5 +1,9 @@
 import './CartItem.css';
 
+export const calculateTotalCartAmount = (cartItems) => {
+  return cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
+};
+
 function CartItem({ item, onUpdateQuantity, onRemove }) {
   const totalPrice = item.price * item.quantity;
 

@@ -7,7 +7,6 @@ function PlantCard({ plant, onAddToCart }) {
   const handleAddToCart = () => {
     onAddToCart(plant);
     setAdded(true);
-    setTimeout(() => setAdded(false), 1500);
   };
 
   return (
@@ -23,8 +22,9 @@ function PlantCard({ plant, onAddToCart }) {
           <button
             className={`add-to-cart-btn ${added ? 'added' : ''}`}
             onClick={handleAddToCart}
+            disabled={added}
           >
-            {added ? 'Added!' : 'Add to Cart'}
+            {added ? 'Added to Cart' : 'Add to Cart'}
           </button>
         </div>
       </div>
