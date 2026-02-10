@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { addItem, removeItem, updateQuantity, clearCart } from './store/CartSlice';
 import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
-import ProductListing from './pages/ProductListing';
+import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
 import AboutUs from './pages/AboutUs';
 import './App.css';
@@ -40,7 +40,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route
               path="/products"
-              element={<ProductListing onAddToCart={handleAddToCart} />}
+              element={<ProductList onAddToCart={handleAddToCart} />}
             />
             <Route
               path="/cart"
